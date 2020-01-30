@@ -67,9 +67,9 @@ impl Generate for It {
         let attributes = self.attributes;
 
         quote_spanned!(name.span() =>
-            #[test]
+            #[actix_rt::test]
             #(#attributes)*
-            fn #name() {
+            async fn #name() {
                 #(#stmts)*
             }
         )
